@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react"
+import { useState, ChangeEvent, FormEvent } from "react"
 import { Activity } from "../types";
 import { categories } from "../data/categories"
 
@@ -28,8 +28,14 @@ export default function Form() {
         
     }
 
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        console.log('Submit...')
+    }
+
   return (
     <form className="space-y-5 bg-white p-10 rounded-lg"
+    onSubmit={handleSubmit}
     >
         <div className="grid grid-cols-1 gap-3" >
             <label htmlFor="category" className="font-bold">Categoría:</label>
